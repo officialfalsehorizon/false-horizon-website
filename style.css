@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:wght@400;500&family=Montserrat:wght@400;500&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#050505;--bone:#e7dfcd;--maroon:#721a23}
+html,body{width:100%;min-height:100%;background:var(--black);color:var(--bone)}
+body{overflow-x:hidden;font-family:"Cormorant Garamond",Georgia,serif}
+.hero{position:relative;width:100%;min-height:100svh;overflow:hidden;display:grid;place-items:center;background:var(--black)}
+.hero-image,.hero-vignette,.hero-grain{position:absolute;inset:0}
+.hero-image{background-image:url("assets/backgrounds/the-walk-hero.png");background-size:cover;background-position:center;opacity:0;transform:scale(1.08);animation:landscape-in 4.8s cubic-bezier(.2,.7,.2,1) forwards,slow-drift 24s ease-in-out 4.8s infinite alternate}
+.hero-vignette{z-index:2;background:radial-gradient(ellipse at center,transparent 27%,rgba(0,0,0,.2) 58%,rgba(0,0,0,.88) 100%),linear-gradient(to bottom,rgba(0,0,0,.46),transparent 35%,rgba(0,0,0,.65))}
+.hero-grain{z-index:3;pointer-events:none;opacity:.10;mix-blend-mode:soft-light;background-image:repeating-radial-gradient(circle at 20% 30%,rgba(255,255,255,.08) 0 1px,transparent 1px 4px)}
+.hero-content{position:relative;z-index:4;width:min(92%,900px);text-align:center;margin-top:8vh}
+.reveal{opacity:0;transform:translateY(16px);text-shadow:0 2px 22px rgba(0,0,0,.9)}
+.eyebrow{font-family:"Cinzel",serif;font-size:clamp(2.25rem,6.7vw,6.3rem);font-weight:400;letter-spacing:.19em}
+.walk-title{font-family:"Cormorant Garamond",serif;margin-top:.35rem;font-size:clamp(1.2rem,2.4vw,1.75rem);font-weight:400;letter-spacing:.55em;padding-left:.55em}
+.motto{margin-top:2rem;font-family:"Montserrat",Arial,sans-serif;font-size:clamp(.62rem,1.1vw,.86rem);letter-spacing:.30em;line-height:1.7}
+.enter-walk{display:inline-block;margin-top:2.1rem;padding:.92rem 1.55rem;border:1px solid rgba(125,28,37,.88);color:var(--bone);background:rgba(0,0,0,.20);text-decoration:none;font-family:"Montserrat",Arial,sans-serif;font-size:.69rem;letter-spacing:.24em;transition:background .35s,border-color .35s,transform .35s}
+.enter-walk:hover,.enter-walk:focus-visible{background:rgba(114,26,35,.34);border-color:#9b3039;transform:translateY(-2px);outline:none}
+.enter-walk span{margin-left:.65rem}
+.scroll-mark{position:absolute;z-index:4;left:50%;bottom:1.6rem;width:1px;height:34px;transform:translateX(-50%);opacity:0}
+.scroll-mark span{display:block;width:1px;height:100%;background:rgba(231,223,205,.5)}
+.loaded .reveal-1{animation:text-in 1.25s ease-out 2.05s forwards}
+.loaded .reveal-2{animation:text-in 1s ease-out 2.95s forwards}
+.loaded .reveal-3{animation:text-in 1s ease-out 3.85s forwards}
+.loaded .reveal-4{animation:text-in 1s ease-out 4.7s forwards}
+.loaded .reveal-5{animation:text-in 1s ease-out 5.7s forwards}
+@keyframes landscape-in{from{opacity:0;transform:scale(1.11)}to{opacity:1;transform:scale(1.08)}}
+@keyframes slow-drift{from{transform:scale(1.08) translate3d(0,0,0)}to{transform:scale(1.105) translate3d(0,-.65%,0)}}
+@keyframes text-in{to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.hero-image{background-position:51% center}.hero-content{margin-top:11vh}.eyebrow{letter-spacing:.11em}.walk-title{letter-spacing:.36em;padding-left:.36em}.motto{margin-top:1.55rem;letter-spacing:.18em}.enter-walk{margin-top:1.65rem}.scroll-mark{bottom:1rem}}
+@media(prefers-reduced-motion:reduce){.hero-image{animation:none;opacity:1;transform:none}.reveal,.loaded .reveal-1,.loaded .reveal-2,.loaded .reveal-3,.loaded .reveal-4,.loaded .reveal-5{animation:none;opacity:1;transform:none}}
